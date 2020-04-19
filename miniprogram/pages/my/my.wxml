@@ -1,0 +1,29 @@
+<view class="page-container">
+  <view class="user-section" wx:if="{{userInfo.nickName}}">
+    <image class="user-avatarUrl" src="{{userInfo.avatarUrl}}"/>
+    <view class="user-info">
+      <view class="user-info-nickName">{{userInfo.nickName}}</view>
+      <view class="user-info-account">微博号:</view>
+    </view>
+  </view>
+  <view class="navigator-section" wx:if="{{userInfo.nickName}}">
+    <navigator class="navigator-item" url="/pages/create/create">
+      <image class="navigator-item-icon" src="/images/tab/release.png" />
+      <view class="navigator-item-bd">发布微博</view>
+      <view class="navigator-item-ft"></view>
+    </navigator>
+    <navigator class="navigator-item" url="/pages/my_topic/my_topic">
+      <image class="navigator-item-icon" src="/images/tab/weibo.png" />
+      <view class="navigator-item-bd">我的微博</view>
+      <view class="navigator-item-ft"></view>
+    </navigator>
+    <navigator class="navigator-item" url="/pages/my_reply/my_reply">
+      <image class="navigator-item-icon" src="/images/tab/reply.png" />
+      <view class="navigator-item-bd">我的回复</view>
+      <view class="navigator-item-ft"></view>
+    </navigator>
+  </view>
+  <view class="login-section" wx:if="{{!userInfo.nickName}}">
+    <button class="login-button" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">授权登录</button>
+  </view>
+</view>

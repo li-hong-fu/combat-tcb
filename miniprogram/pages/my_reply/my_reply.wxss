@@ -1,0 +1,29 @@
+.reply-container{
+  background-color: #F6F6F6;
+}
+.reply-item{
+  display: flex;
+  border-bottom: 1px solid #F6F6F6;
+  margin: 0 15px 10px 15px;
+  padding: 10px 0;
+}
+.reply-avatar{
+  width: 30px;
+  height: 30px;
+}
+.reply-info{
+  margin-left: 10px;
+}
+.reply-name{
+  font-size: 16px;
+  color: rgb(8, 128, 184);
+}
+.reply-content{
+  font-size: 16px;
+  margin: 10px 0;
+}
+.reply-date{
+  color: rgb(148, 144, 144);
+  padding-top: 10px;
+  font-size: 12px;
+}

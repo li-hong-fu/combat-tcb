@@ -1,0 +1,53 @@
+<view class="page-container">
+  <view class="topic-container">
+    <view class="topic-user" wx:if="{{topic.userInfo}}">
+      <image class="user-avatar " src="{{topic.userInfo.avatarUrl}}"/>
+      <view class="user-info">
+        <view class="user-info_name">{{topic.userInfo.nickName}}</view>
+        <view class="user-info_date">{{topic.date_display}}</view>
+      </view>
+    </view>
+    <view class="topic-weibo">
+      <view class="topic-content">{{topic.content}}</view>
+      <image
+        class="topic-imageUrl"
+        wx:if="{{topic.imageUrl}}"
+        src="{{topic.imageUrl}}"
+        data-url="{{topic.imageUrl}}"
+        catchtap="handlePreviewImage"/>
+      <video
+        wx:if="{{topic.videoUrl}}"
+        class="topic-videoUrl"
+        src="{{topic.videoUrl}}"
+        id="{{'video_' + topic._id}}">
+        <cover-view
+          class="topic-videoUrl-controls"
+          data-id="{{'video_' + topic._id}}"
+          catchtap="handlePreviewVideo"></cover-view>
+      </video>
+    </view>
+  </view>
+  <view class="reply-container">
+    <view class="reply-item" wx:for="{{replies}}">
+      <image class="reply-avatar" src="{{item.userInfo.avatarUrl}}"/>
+      <view class="reply-info">
+        <view class="reply-name">{{item.userInfo.nickName}}</view>
+        <view class="reply-content">{{item.content}}</view>
+        <view class="reply-date">{{item.date_display}}</view>
+      </view>
+    </view>
+  </view>
+  <button class="login-container"
+    wx:if="{{!userInfo.nickName}}"
+    open-type="getUserInfo"
+    bindgetuserinfo="onGetUserInfo"
+    >登录后评论</button>
+  <view class="textarea-container" wx:if="{{userInfo.nickName}}">
+    <input
+      class="textarea-input"
+      placeholder="说些啥"
+      value="{{content}}"
+      bindinput="handleChange" />
+    <button class="textarea-btn" bindtap="handleSubmit">评论</button>
+  </view>
+</view>

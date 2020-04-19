@@ -1,0 +1,10 @@
+<view class="reply-container">
+  <navigator class="reply-item" wx:for="{{replies}}" url="/pages/detail/detail?id={{item.id}}">
+    <image class="reply-avatar" src="{{item.userInfo.avatarUrl}}"/>
+    <view class="reply-info">
+      <view class="reply-name">{{item.userInfo.nickName}}</view>
+      <view class="reply-content">{{item.content}}</view>
+      <view class="reply-date">{{item.date_display}}</view>
+    </view>
+  </navigator>
+</view>

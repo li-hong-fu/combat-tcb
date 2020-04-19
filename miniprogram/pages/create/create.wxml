@@ -1,0 +1,13 @@
+<view class="page-container">
+  <view class="form-section">
+    <textarea class="form-textarea" placeholder="这一刻的想法" placeholder-class="textarea-placeholder" bindinput="handleChange"></textarea>
+  </view>
+  <view class="resource-section">
+    <view wx:if="{{!imageUrl && !videoUrl}}" bindtap="handleUpload" class="resource-item resource-item_add"></view>
+    <image wx:if="{{imageUrl}}" class="resource-item" src="{{imageUrl}}"/>
+    <video wx:if="{{videoUrl}}" class="resource-item" src="{{videoUrl}}"/>
+  </view>
+  <view class="btn-section">
+    <button class="btn-button" bindtap="handleSubmit">发布</button>
+  </view>
+</view>
